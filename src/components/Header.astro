@@ -1,0 +1,36 @@
+---
+import { SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import Github from "./icons/Github.astro";
+import X from "./icons/X.astro";
+---
+
+<header>
+  <nav class="flex items-center gap-4 my-16">
+    <div class="w-20 h-20 overflow-hidden rounded-xl
+    ">
+      <a href="/">
+        <img class="" src="/avatar.jpg" alt="textures" />
+      </a>
+    </div>
+
+    <div class="flex flex-col justify-between">
+      <div>
+        <h2 class="text-2xl font-medium"><a>{SITE_TITLE}</a></h2>
+        <p class="">Welcome to my portfolio</p>
+      </div>
+
+      <div class="flex items-center">
+        <div class="flex items-center gap-3 text-black">
+          <HeaderLink class="bg-[#afafc8] px-4 rounded-lg" href="/">home</HeaderLink>
+          <HeaderLink class="bg-[#e2c3c7] px-4 rounded-lg" href="/blog">blog</HeaderLink>
+          <HeaderLink class="bg-[#f7e0d3] px-4 rounded-lg" href="/projects">projects</HeaderLink>
+        </div>
+        <div class="flex items-center ml-4 gap-1">
+          <HeaderLink href={"https://twitter.com/rikudevs"}><X class="w-7 h-7 fill-whitesmoke"/></HeaderLink>
+          <HeaderLink href={"https://github.com/rikurainio"}><Github class="w-7 h-[1.6rem] fill-whitesmoke"/></HeaderLink>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

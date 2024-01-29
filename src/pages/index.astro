@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout>
+  <section>
+    <div class="grid auto-rows-[7rem] grid-cols-3 gap-4">
+      {posts.slice(0,5).map((post, i) => (
+        <a href={`/${post.slug}/`}>
+          <div
+            class={`
+              row-span-1 rounded-xl border border-slate-400/10 p-4 dark:bg-neutral-900 
+              hover:-translate-y-1 transition-all duration-150 
+              h-full 
+              ${ i === 1 || i === 3 ? "col-span-2" : ""}
+             `}
+          >
+          {post.data.title}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
